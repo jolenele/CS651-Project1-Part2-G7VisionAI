@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  g7visionai-web:
+    build:
+      context: ..
+      dockerfile: DockerContainer/Dockerfile
+    container_name: g7visionai-website
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.g7visionai.rule=Host(`g7visionai.com`)"
+      - "traefik.http.routers.g7visionai.entrypoints=web"
+      - "traefik.http.services.g7visionai.loadbalancer.server.port=80"
+
+networks:
+  default:
+    name: g7visionai-network

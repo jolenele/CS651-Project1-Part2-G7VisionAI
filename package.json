@@ -4,8 +4,8 @@
   "description": "A modern website for G7VisionAI - Computer Vision and Machine Learning startup with HTML, CSS, JavaScript, Bootstrap, and React components",
   "main": "index.html",
   "scripts": {
-    "start": "python -m http.server 8000",
-    "dev": "python -m http.server 8000"
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000"
   },
   "keywords": [
     "html",
