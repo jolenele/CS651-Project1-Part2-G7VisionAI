@@ -1,0 +1,35 @@
+{
+  "name": "visionai-website",
+  "version": "1.0.0",
+  "description": "A modern website for G7VisionAI - Computer Vision and Machine Learning startup with HTML, CSS, JavaScript, Bootstrap, and React components",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript",
+    "bootstrap",
+    "react",
+    "responsive",
+    "website"
+  ],
+  "author": "G7VisionAI Team",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/visionai/website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/visionai/website/issues"
+  },
+  "homepage": "https://github.com/visionai/website#readme"
+}

@@ -1,0 +1,433 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #010101;
+    background-color: #fefdfd;
+}
+
+/* Navigation Styles */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-dark.bg-primary {
+    background-color: #3a3153 !important;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #b1aebb !important;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #3d374d 0%, #3d325d 50%, #010101 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+    background-size: cover;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-buttons .btn {
+    margin: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.hero-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Features Section */
+.features-section {
+    padding: 5rem 0;
+}
+
+.feature-card {
+    background: #fefdfd;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(58, 49, 83, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(58, 49, 83, 0.3);
+}
+
+.feature-icon {
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h4 {
+    color: #010101;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.feature-card p {
+    color: #3a3153;
+    margin-bottom: 0;
+}
+
+/* Floating Elements */
+.floating-element {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Stats Section */
+.stats-section {
+    background: linear-gradient(135deg, #b1aebb 0%, #fefdfd 100%);
+}
+
+.stat-item {
+    padding: 2rem 0;
+}
+
+.stat-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+/* About Page Styles */
+.about-hero {
+    background: linear-gradient(135deg, #3a3153 0%, #3d325d 50%, #010101 100%);
+    color: #fefdfd;
+    margin-top: 76px;
+}
+
+.about-hero h1 {
+    color: #fefdfd;
+}
+
+.mission-section {
+    background: linear-gradient(135deg, #3d325d 0%, #3a3153 100%);
+    color: #fefdfd;
+}
+
+.mission-section h2,
+.mission-section p {
+    color: #fefdfd;
+}
+
+.team-card {
+    text-align: center;
+    padding: 2rem;
+    background: #fefdfd;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(58, 49, 83, 0.2);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(58, 49, 83, 0.3);
+}
+
+.team-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.values-section {
+    background: linear-gradient(135deg, #3a3153 0%, #3d325d 50%, #010101 100%);
+}
+
+.value-item {
+    padding: 2rem 1rem;
+}
+
+.value-item i {
+    color: #b1aebb;
+}
+
+/* Contact Page Styles */
+.contact-hero {
+    background: linear-gradient(135deg, #3a3153 0%, #3d325d 50%, #010101 100%);
+    color: #fefdfd;
+    margin-top: 76px;
+}
+
+.contact-hero h1 {
+    color: #fefdfd;
+}
+
+.contact-form-container {
+    background: #fefdfd;
+    border-radius: 15px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(58, 49, 83, 0.2);
+    position: relative;
+}
+
+.contact-form .form-control,
+.contact-form .form-select {
+    border-radius: 10px;
+    border: 2px solid #b1aebb;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus,
+.contact-form .form-select:focus {
+    border-color: #3d325d;
+    box-shadow: 0 0 0 0.2rem rgba(95, 67, 178, 0.25);
+}
+
+.contact-info-card {
+    background: #fefdfd;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(58, 49, 83, 0.2);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(58, 49, 83, 0.3);
+}
+
+.contact-info-card h4 {
+    color: #010101;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.map-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(58, 49, 83, 0.2);
+}
+
+.map-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.map-marker {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+        padding: 2rem 0;
+    }
+    
+    .hero-buttons .btn {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    
+    .feature-card,
+    .team-card,
+    .contact-info-card {
+        margin-bottom: 2rem;
+    }
+    
+    .floating-element {
+        position: static;
+        display: inline-block;
+        margin-top: 1rem;
+    }
+}
+
+/* Box Model Examples */
+.box-model-demo {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #3a3153 0%, #3d325d 100%);
+    border: 5px solid #010101;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(58, 49, 83, 0.3);
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Sign-In Page  */
+.signin-section {
+    background: linear-gradient(135deg, #3a3153 0%, #3d325d 50%, #010101 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.signin-container {
+    background: rgba(254, 253, 253, 0.95);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 20px 40px rgba(58, 49, 83, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.signin-hero {
+    padding: 2rem 0;
+}
+
+.signin-form-container,
+.create-account-form-container {
+    background: #fefdfd;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(58, 49, 83, 0.2);
+    height: 100%;
+}
+
+.signin-form .form-control,
+.create-account-form .form-control {
+    border-radius: 10px;
+    border: 2px solid #b1aebb;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.signin-form .form-control:focus,
+.create-account-form .form-control:focus {
+    border-color: #3d325d;
+    box-shadow: 0 0 0 0.2rem rgba(95, 67, 178, 0.25);
+}
+
+.signin-form .btn,
+.create-account-form .btn {
+    border-radius: 10px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.signin-form .btn:hover,
+.create-account-form .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* React Component Animations */
+.signin-app {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, #3a3153 0%, #3d325d 50%, #010101 100%);
+    border: none;
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2a1f3a 0%, #4a2f8a 50%, #000000 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(58, 49, 83, 0.3);
+}
+
+.btn-outline-light {
+    border: 2px solid white;
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background: #fefdfd;
+    color: #3d325d;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(58, 49, 83, 0.3);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #3d325d 0%, #3a3153 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #4a2f8a 0%, #2a1f3a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(58, 49, 83, 0.3);
+}
