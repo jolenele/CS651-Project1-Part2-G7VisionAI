@@ -1,3 +1,22 @@
+// Scroll to top function for floating area
+function scrollToTop() {
+    console.log("scrollToTop function called");
+    try {
+        if ('scrollBehavior' in document.documentElement.style) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            window.scrollTo(0, 0);
+        }
+        console.log("Scrolled to top successfully");
+    } catch (error) {
+        console.error("Error scrolling to top:", error);
+        window.scrollTo(0, 0);
+    }
+}
+
 // DOM Content Loaded Event
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
@@ -6,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeCounters();
     initializeContactForm();
     initializeResponsiveMenu();
+    initializeFloatingArea();
 });
 
 // Navigation functionality
@@ -270,3 +290,36 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Initialize floating area functionality
+function initializeFloatingArea() {
+    const floatingArea = document.querySelector('.floating-area');
+    if (floatingArea) {
+        console.log("Floating area found, adding event listener");
+        
+        // Add click event listener as backup to onclick attribute
+        floatingArea.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log("Floating area clicked via event listener");
+            scrollToTop();
+        });
+        
+        // Add visual feedback on click
+        floatingArea.addEventListener('mousedown', function() {
+            this.style.transform = 'translateY(-2px) scale(0.95)';
+        });
+        
+        floatingArea.addEventListener('mouseup', function() {
+            this.style.transform = '';
+        });
+        
+        // Ensure the element is visible and positioned correctly
+        floatingArea.style.display = 'block';
+        floatingArea.style.visibility = 'visible';
+        floatingArea.style.opacity = '1';
+        
+        console.log("Floating area initialized successfully");
+    } else {
+        console.warn("Floating area not found on this page");
+    }
+}
