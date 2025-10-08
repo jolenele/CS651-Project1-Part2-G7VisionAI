@@ -1,66 +1,68 @@
-# G7VisionAI Website - Requirements Compliance Report
+## Docker Deployment Guide AWS EC2
 
-A comprehensive website for G7VisionAI - Computer Vision and Machine Learning startup, built with HTML, CSS, JavaScript, Bootstrap, and React components.
+### 1. Build and Push Docker Image
 
-## 📋 Requirements Compliance
+1. **Create a `Dockerfile`** in the repository.
 
-### ✅ Core Requirements Met:
+2. **Open Docker Desktop** and ensure `docker` commands work in your terminal.
 
-1. **HTML, CSS, JavaScript & Bootstrap**: All implemented and properly integrated
-2. **Multi-page Structure**: 
-   - ✅ Home Page (`index.html`)
-   - ✅ About Page (`about.html`) 
-   - ✅ Contact Page (`contact.html`)
-   - ✅ Sign In Page (`signin.html`)
+3. **Build the Docker image:**
+   ```sh
+   docker build -t g7visionai:latest .
+   ```
 
-3. **JavaScript Interactions** (Minimum 2 required):
-   - ✅ **Interaction 1**: Bootstrap responsive menu realignment when changing scale/viewport size
-   - ✅ **Interaction 2**: Create-account flow implemented with JavaScript: a "Create Account" action reveals a registration form to the right of the login form; when the registration form is submitted the registration UI is hidden and the login form is populated with the new credentials (this demonstrates DOM manipulation, form handling, and state preservation using JavaScript).
+4. **Log in to Docker Hub:**
+   ```sh
+   docker login
+   ```
 
-4. **Images and Graphics**: 
-   - ✅ Present on ALL pages using Unsplash API
-   - ✅ Proper alt attributes for accessibility
-   - ✅ Font Awesome icons throughout
+5. **Tag the image:**
+   ```sh
+   docker tag g7visionai:latest rohankumar09/project-1-g7visionai:latest
+   ```
 
-5. **CSS Box Model Implementation**:
-   - ✅ Comprehensive CSS styling on each page
-   - ✅ Floating div/span elements that float to right/bottom
-   - ✅ Proper use of margin, padding, border, and positioning
+6. **Push the image to your Docker Hub repository:**
+   ```sh
+   docker push rohankumar09/project-1-g7visionai:latest
+   ```
 
-6. **ReactJS Sign-in Page**:
-   - ✅ Minimal HTML with empty div tags populated by React
-   - ✅ Login form with username and password fields
-   - ✅ "Create Account" button functionality
-   - ✅ Dynamic form switching with state preservation
-   - ✅ State management for login credentials
+---
 
-## 🚀 Key Features
+### 2. Deploy on EC2 Instance
 
-### JavaScript Interactions:
-1. **Responsive Menu Alignment** - Uses Bootstrap to realign navigation menu when browser scale changes
-2. **Create-account Flow (JavaScript)** - The sign-in flow allows revealing a create-account form next to the login form; submitting the create-account form hides it and fills the login fields with the newly created credentials. This interaction is implemented with JavaScript to demonstrate dynamic DOM updates and form handling.
+1. **Update packages:**
+   ```sh
+   sudo yum update -y
+   ```
 
-### CSS Box Model Examples:
-- Floating elements in feature cards (`.floating-element`)
-- Right-bottom floating badges on team cards (`.float-right-bottom`)
-- Bottom floating information boxes (`.float-bottom`)
-- Comprehensive margin, padding, and border usage throughout
+2. **Install Docker:**
+   ```sh
+   sudo yum install -y docker
+   ```
 
-### React Components:
-- LoginForm component with controlled inputs
-- CreateAccountForm component with state management
-- Dynamic form switching with preserved credentials
-- Bootstrap integration within React components
+3. **Start and enable Docker:**
+   ```sh
+   sudo systemctl enable docker
+   sudo systemctl start docker
+   ```
 
-## 🛠️ Technical Implementation
+4. **Pull the Docker image from Docker Hub:**
+   ```sh
+   sudo docker pull rohankumar09/project-1-g7visionai:latest
+   ```
 
-- **HTML5**: Semantic markup and structure
-- **CSS3**: Advanced styling with animations and gradients
-- **JavaScript ES6+**: Modern JavaScript with DOM manipulation
-- **Bootstrap 5.3**: Responsive framework and components
-- **React 18**: Component-based architecture for sign-in functionality
-- **Font Awesome**: Icon library for enhanced UI
+5. **Run the Docker container:**
+   ```sh
+   docker run -d --name project1-site -p 80:80 rohankumar09/project-1-g7visionai:latest
+   ```
 
-## ✨ All Requirements Successfully Met
+6. **Update the Security Group Settings:**  
+   - Add a rule to allow all outbound traffic.
 
-This codebase fully complies with all specified requirements and demonstrates professional web development practices.
+---
+
+### 3. Access the Application
+
+- Open your EC2 instance's public URL in a browser.
+
+> **Note:** The application may not be accessible at the moment. Please verify security group settings and container logs if issues persist.
